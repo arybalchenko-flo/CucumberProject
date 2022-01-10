@@ -9,13 +9,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.HashMap;
 
 public class WebDriverFactory {
+    public static String downloadDir = System.getProperty("user.dir") + "//src//test//downloads";
     public static WebDriver getDriver(Browsers browserType) {
         WebDriver driver = null;
         switch (browserType) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
                 HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-                String downloadDir = System.getProperty("user.dir") + "//src//test//downloads";
                 chromePrefs.put("download.default_directory", downloadDir);
                 ChromeOptions options = new ChromeOptions();
                 options.setExperimentalOption("prefs", chromePrefs);

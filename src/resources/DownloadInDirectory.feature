@@ -5,9 +5,12 @@ Feature: I want to download file in the selected directory
     Then Page opened
 
   Scenario: Download
-    When I move to the photo
-    And I click on the download button
-    Then I wait until download is finished
+    Given I click on the download button
+    When I wait until download is finished
+    And File downloaded
+    Then I check file availability
+
+
 
 
 
