@@ -15,7 +15,8 @@ public class WebDriverFactory {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
                 HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-                chromePrefs.put("download.default_directory", "//Users//floadmin//Documents//DownloadTest");
+                String downloadDir = System.getProperty("user.dir") + "//src//test//downloads";
+                chromePrefs.put("download.default_directory", downloadDir);
                 ChromeOptions options = new ChromeOptions();
                 options.setExperimentalOption("prefs", chromePrefs);
                 driver = new ChromeDriver(options);
