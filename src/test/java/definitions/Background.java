@@ -5,6 +5,7 @@ import hooks.Hooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class Background extends Base {
     @Given("I open the main page")
@@ -12,18 +13,8 @@ public class Background extends Base {
         Hooks.openSite();
     }
 
-    @Then("Search completed")
-    public void search_Completed() {
-        System.out.println("Search completed");
-    }
-
     @Then("Page opened")
     public void page_Opened() {
         System.out.println("Page opened successfully");
-    }
-
-    @And("I wait three sec")
-    public void i_Wait_Three_Sec() throws InterruptedException {
-        Thread.sleep(3000);
     }
 }

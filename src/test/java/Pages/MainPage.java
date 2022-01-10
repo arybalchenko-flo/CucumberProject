@@ -3,12 +3,23 @@ package Pages;
 import Base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends Base {
-  //Поле для поиска
-    By searchBar = By.className("input__field");
-  //Начало поиска
-    public void search(String keysToSend) {
-        sendKey(searchBar, keysToSend);
-    }
+
+  private static final By downloadBtn = By.cssSelector("a.js-download");
+  private static final By photoSelect = By.cssSelector("article.photo-item");
+
+  public void downloadClick() { //Нахождение кнопки скачать и клик по ней
+    WebElement input = wait.until(ExpectedConditions.elementToBeClickable(downloadBtn));
+    input.click();
+  }
+  public void moveToPhoto() { //Движение курсора к элементу
+    WebElement photo = wait.until(ExpectedConditions.visibilityOfElementLocated(photoSelect));
+    Actions actions = new Actions(driver);
+    actions.moveToElement(photo);
+    actions.perform();
+  }
 }
